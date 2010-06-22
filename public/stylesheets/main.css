@@ -1,0 +1,55 @@
+body {
+    background-image: url("../images/large-stripes.png");
+	color: #fff;
+}
+
+#page {
+	background-color: #000;
+	padding-bottom: 10px;
+}
+
+#header {
+	background-image: url("../images/medium-stripes.png");
+	text-align: center;
+	font-size: 26px;
+	font-weight: bold;
+	padding: 15px 0px;
+	border: 1px solid #232323;
+	border-top: 0px;
+}
+
+#search {
+	padding: 10px 0px 10px 0px;
+
+}
+
+#search dl dt {
+
+}
+
+#search dl dd {
+	margin-left: 10px;
+}
+
+#search dl dd img {
+	float: right;
+}
+
+#content {
+    background-image: url("../images/small-stripes.png");
+    padding-top: 10px;
+	border-top: 1px solid #232323;
+}
+
+.result {
+  height: 200px;
+  overflow-y: hidden;
+  border: 1px solid #232323;
+  margin-bottom: 20px;
+  padding: 5px;
+  background-color: #111;
+}
+
+.result h5 {
+  font-size: 15px;
+}
