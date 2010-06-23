@@ -1,20 +1,25 @@
 function duplicateInputs(anchor){
-  var target = anchor.parentNode.parentNode;
+  var self = anchor.parentNode;
   var inputs = $('dd#search-inputs');
   var inputs = inputs.clone();
   var inputs = inputs.attr('id', null);
-  inputs.appendTo(target);
+  $(self).after(inputs);
 }
 
 function duplicateNest(anchor){
-  var target = anchor.parentNode.parentNode;
+  var self = anchor.parentNode;
   var inputs = $('dd#search-nest');
   var inputs = inputs.clone();
   var inputs = inputs.attr('id', null);
-  inputs.appendTo(target);
+  $(self).after(inputs);
 }
 
 function removeLine(anchor){
   var inputs = anchor.parentNode;
-  inputs.parentNode.removeChild(inputs);
+  var nest = anchor.parentNode.parentNode;
+  var holder = anchor.parentNode.parentNode.parentNode;
+  $(inputs).remove();
+  if($(nest).children().last()[0].nodeName == "DT"){
+    $(holder).remove();
+  }
 }
