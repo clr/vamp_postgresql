@@ -28,7 +28,7 @@ body {
 }
 
 #search dl dt, #search dl dd {
-  height: 25px;
+  min-height: 25px;
 }
 
 #search dl dd {
@@ -46,9 +46,11 @@ body {
 }
 
 #search-nest {
-	display: none;
 }
 
+.hidden {
+  display: none;
+}
 
 .result {
   height: 200px;
@@ -64,6 +66,5 @@ body {
 }
 
 .searchbutton {
-  bottom: 0px;
-  right: 0px;
+  display: block
 }

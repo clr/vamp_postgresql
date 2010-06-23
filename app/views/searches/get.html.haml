@@ -2,13 +2,36 @@
   #header.grid_12
     Postgres VAMP Archive
   #search.grid_12
-    %dl#search-nest
-      %dt
-        %select{:name => "operand", :size => "1"}
-          %option{:value => "all"}
-            All
-          %option{:value => "any"}
-            Any
+    %dl.hidden
+      %dd#search-nest
+        %dl
+          %dt
+            %select{:name => "operand", :size => "1"}
+              %option{:value => "all"}
+                All
+              %option{:value => "any"}
+                Any
+          %dd
+            %select{:name => "type", :size => "1"}
+              - Avm.fetch(:all).each do |tag|
+                %option{:value => tag.id}
+                  = tag.tag_name
+            %select{:name => "conditional", :size => "1"}
+              %option{:value => "is"}
+                is
+              %option{:value => "is_not"}
+                is not
+              %option{:value => "contains"}
+                contains
+              %option{:value => "does_not_contain"}
+                does not contain
+            %input{:type => "text", :name => "search", :size => "30"}
+            %a{:href => "#", :class => "minus", :onclick => "removeLine(this);return false"}
+              %img{:src => "images/minus-icon-24.png"}
+            %a{:href => "#", :class => "plus", :onclick => "duplicateInputs(this);return false"}
+              %img{:src => "images/plus-icon-24.png"}      
+            %a{:href => "#", :class => "nest", :onclick => "duplicateNest(this);return false"}
+              %img{:src => "images/nest-icon-24.png"}
       %dd#search-inputs
         %select{:name => "type", :size => "1"}
           - Avm.fetch(:all).each do |tag|
@@ -28,7 +51,7 @@
           %img{:src => "images/minus-icon-24.png"}
         %a{:href => "#", :class => "plus", :onclick => "duplicateInputs(this);return false"}
           %img{:src => "images/plus-icon-24.png"}      
-        %a{:href => "#", :class => "nest", :onclick => "duplicateNest();return false"}
+        %a{:href => "#", :class => "nest", :onclick => "duplicateNest(this);return false"}
           %img{:src => "images/nest-icon-24.png"}      
     %form{:action => '/search', :method => :post}
       %dl
@@ -57,7 +80,7 @@
             %img{:src => "images/minus-icon-24.png"}
           %a{:href => "#", :class => "plus", :onclick => "duplicateInputs(this);return false"}
             %img{:src => "images/plus-icon-24.png"}
-          %a{:href => "#", :class => "nest", :onclick => "duplicateNest();return false"}
+          %a{:href => "#", :class => "nest", :onclick => "duplicateNest(this);return false"}
             %img{:src => "images/nest-icon-24.png"}      
       %input.searchbutton{:type => 'submit', :value => 'search'}
   .clear

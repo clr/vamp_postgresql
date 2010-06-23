@@ -6,16 +6,15 @@ function duplicateInputs(anchor){
   inputs.appendTo(target);
 }
 
-function duplicateNest(){
-  var inputs = $('dl#search-nest');
+function duplicateNest(anchor){
+  var target = anchor.parentNode.parentNode;
+  var inputs = $('dd#search-nest');
   var inputs = inputs.clone();
   var inputs = inputs.attr('id', null);
-  inputs.appendTo('form');
+  inputs.appendTo(target);
 }
 
 function removeLine(anchor){
-  // Select the parent's parent DOM element of the <a> that was clicked.
   var inputs = anchor.parentNode;
-  // Drop it like a hot potato from the DOM tree.
   inputs.parentNode.removeChild(inputs);
 }
